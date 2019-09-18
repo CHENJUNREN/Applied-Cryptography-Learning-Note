@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "",
+            "args": "2"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "",
+            "args": "1"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - C_Encrypt",
+            "request": "launch",
+            "mainClass": "foundation.C_Encrypt",
+            "projectName": "EECS3481"
+        }
+    ]
+}
