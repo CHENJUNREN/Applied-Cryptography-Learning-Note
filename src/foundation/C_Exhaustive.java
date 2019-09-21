@@ -13,7 +13,7 @@ public class C_Exhaustive {
 		int max_key = 0;
 		double max_dot = 0;
 		String max_dct = "";
-		for (int key = 1; key <= num_shift; key++) {
+		for (int key = 0; key < num_shift; key++) {
 			bk = new byte[ct.length];
 			for (int i = 0; i < ct.length; i++) {
 				int temp = (ct[i] - 'A' - key) % 26;
