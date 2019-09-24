@@ -25,8 +25,8 @@ public class C_Encrypt {
 			System.out.println("different!!!");
 		}
 		
-		System.out.printf("the index of coincidence of the clean plaintext: %.2f\n", CryptoTools.getIC(pt));
-		System.out.printf("the index of coincidence of the ciphertext: %.2f\n", CryptoTools.getIC(ct));
+		System.out.printf("the index of coincidence of the clean plaintext: %f\n", CryptoTools.getIC(pt));
+		System.out.printf("the index of coincidence of the ciphertext: %f\n", CryptoTools.getIC(ct));
 	}
 
 }

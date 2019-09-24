@@ -22,10 +22,10 @@ public class V_Crypta {
 		for (int i = 0; i < length; i++) {
 			byte[] sample = sample(ct, length, i);
 			double maxDot = 0;
-			// Caesar Exhaustive 
+			int maxKey = 0;
+			// Exhaustive 
 			for (int j = 0; j < 26; j++) {
 				byte[] test = new byte[sample.length];
-
 				for (int k = 0; k < sample.length; k++) {
 					int temp = (sample[k] - 'A' - j) % 26;
 					if (temp < 0)
@@ -35,10 +35,28 @@ public class V_Crypta {
 				double dp = CryptoTools.getDotProduct(CryptoTools.getFrequencies(test), CryptoTools.ENGLISH);
 				if (dp > maxDot) {
 					maxDot = dp;
-					keySet[i] = j;
+					maxKey = j;
 				}
 			}
+			keySet[i] = maxKey;
 		}
+		
+		/*
+		for (int i = 0; i < length; i++) {
+			byte[] sample = sample(ct, length, i);
+			// Crypta
+			int[] freq = CryptoTools.getFrequencies(sample);
+			int max_freq = 0;
+			char max_char = 0;
+			for (int j = 0; j < freq.length; j++) {
+				if (freq[j] > max_freq) {
+					max_freq = freq[j];
+					max_char = (char) ('A' + j);
+				}
+			}
+			keySet[i] = max_char - 'E';
+		} 
+		*/
 		
 		System.out.println("-------------------------------------------------------------");
 		// reveal the key
