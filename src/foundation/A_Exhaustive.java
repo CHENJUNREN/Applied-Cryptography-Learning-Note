@@ -29,8 +29,8 @@ public class A_Exhaustive {
 						if (temp < 0) temp += 26;
 						test[i] = (byte) (temp + 'A');
 					}
-					int[] freq = CryptoTools.getFrequencies(test);
-					double dot_product = CryptoTools.getDotProduct(freq, CryptoTools.ENGLISH);
+					double[] freq = CryptoTools.getFrequencies(test);
+					double dot_product = CryptoTools.getDotProductWithEnglish(freq);
 					System.out.printf("alpha = %d, beta = %d ---> %f\n", alpha, beta, dot_product);
 					count++;
 					

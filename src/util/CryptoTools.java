@@ -120,10 +120,22 @@ public class CryptoTools {
 	 * Compute the frequencies (as counts) of letters in a byte array made up of
 	 * caps.
 	 **/
-	public static int[] getFrequencies(byte[] ar) {
-		int[] freq = new int[26];
+	/*
+	 * public static int[] getFrequencies(byte[] ar) { int[] freq = new int[26]; for
+	 * (int i = 0; i < ar.length; i++) { freq[ar[i] - 'A']++; } return freq; }
+	 */
+
+	/**
+	 * Compute the relative frequencies of letters in a byte array made up of caps.
+	 **/
+	public static double[] getFrequencies(byte[] ar) {
+		int[] count = new int[26];
 		for (int i = 0; i < ar.length; i++) {
-			freq[ar[i] - 'A']++;
+			count[ar[i] - 'A']++;
+		}
+		double[] freq = new double[26];
+		for (int i = 0; i < count.length; i++) {
+			freq[i] = (double) count[i] / ar.length;
 		}
 		return freq;
 	}
@@ -148,10 +160,10 @@ public class CryptoTools {
 		return ic;
 	}
 
-	public static double getDotProduct(int[] a, double[] b) {
+	public static double getDotProductWithEnglish(double[] a) {
 		double sum = 0;
-		for (int i = 0; i < a.length; i++) {
-			sum += a[i] * b[i];
+		for (int i = 0; i < ENGLISH.length; i++) {
+			sum += a[i] * (ENGLISH[i] / 100);
 		}
 		return sum;
 	}

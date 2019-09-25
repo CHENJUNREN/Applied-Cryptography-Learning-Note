@@ -32,7 +32,7 @@ public class V_Crypta {
 						temp += 26;
 					test[k] = (byte) (temp + 'A');
 				}
-				double dp = CryptoTools.getDotProduct(CryptoTools.getFrequencies(test), CryptoTools.ENGLISH);
+				double dp = CryptoTools.getDotProductWithEnglish(CryptoTools.getFrequencies(test));
 				if (dp > maxDot) {
 					maxDot = dp;
 					maxKey = j;
@@ -45,8 +45,8 @@ public class V_Crypta {
 		for (int i = 0; i < length; i++) {
 			byte[] sample = sample(ct, length, i);
 			// Crypta
-			int[] freq = CryptoTools.getFrequencies(sample);
-			int max_freq = 0;
+			double[] freq = CryptoTools.getFrequencies(sample);
+			double max_freq = 0;
 			char max_char = 0;
 			for (int j = 0; j < freq.length; j++) {
 				if (freq[j] > max_freq) {
