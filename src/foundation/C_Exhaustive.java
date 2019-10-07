@@ -21,7 +21,7 @@ public class C_Exhaustive {
 				bk[i] = (byte) (temp + 'A');
 			}
 			//System.out.println("dct = " + new String(bk));
-			double[] freq = CryptoTools.getFrequencies(bk);
+			double[] freq = CryptoTools.getRelativeFrequencies(bk);
 			double dotProduct = CryptoTools.getDotProductWithEnglish(freq);
 			//System.out.printf("shift = %d ---> dot product = %f\n\n", key, dotProduct);
 			

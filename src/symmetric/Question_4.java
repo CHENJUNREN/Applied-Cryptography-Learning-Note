@@ -20,7 +20,7 @@ public class Question_4 {
 		for (int i = 0; i < blocks_hex.length; i++) {
 			byte[] block = CryptoTools.hexToBytes(blocks_hex[i]);
 			byte[] negated = getNegation(iv);
-			
+
 			Key secret = new SecretKeySpec(ky, "DES");
 			Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
 			AlgorithmParameterSpec aps = new IvParameterSpec(negated);

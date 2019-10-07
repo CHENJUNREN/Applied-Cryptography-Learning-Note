@@ -1,7 +1,6 @@
 package foundation;
 
 import java.math.BigInteger;
-
 import util.CryptoTools;
 
 public class A_Exhaustive {
@@ -29,7 +28,7 @@ public class A_Exhaustive {
 						if (temp < 0) temp += 26;
 						test[i] = (byte) (temp + 'A');
 					}
-					double[] freq = CryptoTools.getFrequencies(test);
+					double[] freq = CryptoTools.getRelativeFrequencies(test);
 					double dot_product = CryptoTools.getDotProductWithEnglish(freq);
 					System.out.printf("alpha = %d, beta = %d ---> %f\n", alpha, beta, dot_product);
 					count++;

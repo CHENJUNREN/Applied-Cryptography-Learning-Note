@@ -32,7 +32,7 @@ public class V_Crypta {
 						temp += 26;
 					test[k] = (byte) (temp + 'A');
 				}
-				double dp = CryptoTools.getDotProductWithEnglish(CryptoTools.getFrequencies(test));
+				double dp = CryptoTools.getDotProductWithEnglish(CryptoTools.getRelativeFrequencies(test));
 				if (dp > maxDot) {
 					maxDot = dp;
 					maxKey = j;

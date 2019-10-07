@@ -7,7 +7,7 @@ public class C_Crypta {
 	public static void main(String[] args) throws Exception {
 		byte[] ct = CryptoTools.fileToBytes("data/MSG2.ct.txt");
 
-		double[] freq = CryptoTools.getFrequencies(ct);
+		double[] freq = CryptoTools.getRelativeFrequencies(ct);
 		double max_freq = 0;
 		char max_char = 0;
 		for (int i = 0; i < freq.length; i++) {
