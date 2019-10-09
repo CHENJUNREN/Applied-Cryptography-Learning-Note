@@ -162,6 +162,9 @@ public class CryptoTools {
         return ic;
     }
 
+    /**
+     * Compute the dot product of frequency vector 'a' and English frequency vector
+     */
     public static double getDotProductWithEnglish(double[] a) {
         double sum = 0;
         for (int i = 0; i < ENGLISH.length; i++) {
@@ -170,4 +173,26 @@ public class CryptoTools {
         return sum;
     }
 
+    /**
+     * Given a string of hex digits, divide it into several DES encryption/decryption blocks
+     */
+    public static String[] getBlocks(String hex) {
+        int blockNum = hex.length() / 16;
+        String[] result = new String[blockNum];
+        for (int i = 0; i < blockNum; i++) {
+            result[i] = hex.substring(i * 16, (i+1) * 16);
+        }
+        return result;
+    }
+
+    /**
+     * Compute the bitwise complement of an array of bytes
+     */
+    public static byte[] getNegation(byte[] ar) {
+        byte[] result = new byte[ar.length];
+        for (int i = 0; i < ar.length; i++) {
+            result[i] = (byte) ~ar[i];
+        }
+        return result;
+    }
 }

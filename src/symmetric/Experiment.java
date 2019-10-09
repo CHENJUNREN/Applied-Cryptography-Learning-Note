@@ -10,8 +10,7 @@ import util.CryptoTools;
 public class Experiment {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		byte[] pt = "hello my name is tony".getBytes();
+		byte[] pt = "My name is Ren Chenjun".getBytes();
 		byte[] ky = "CSE@YORK".getBytes();
 		byte[] iv = CryptoTools.hexToBytes("0123456701234567");
 		

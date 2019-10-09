@@ -8,6 +8,8 @@ public class A_Exhaustive {
 	public static void main(String[] args) throws Exception {
 		byte[] ct = CryptoTools.fileToBytes("data/check.txt");
 
+		System.out.println("ic = " + CryptoTools.getIC(ct));
+
 		int count = 0;
 		int alpha;
 		int beta;
@@ -30,7 +32,7 @@ public class A_Exhaustive {
 					}
 					double[] freq = CryptoTools.getRelativeFrequencies(test);
 					double dot_product = CryptoTools.getDotProductWithEnglish(freq);
-					System.out.printf("alpha = %d, beta = %d ---> %f\n", alpha, beta, dot_product);
+					System.out.printf("alpha = %d, beta = %d ---> dp = %f\n", alpha, beta, dot_product);
 					count++;
 					
 					if (dot_product > max_dot) {
@@ -43,7 +45,8 @@ public class A_Exhaustive {
 			}
 		}
 		System.out.println("Total combs: " + count);
-		System.out.printf("alpha = %d, beta = %d ---> %f\n%s", a, b, max_dot, dct);
+		System.out.println("------------------------------------------------------------------");
+		System.out.printf("alpha = %d, beta = %d ---> dp = %f\n%s", a, b, max_dot, dct);
 	}
 
 }

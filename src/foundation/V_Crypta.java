@@ -7,7 +7,9 @@ import util.CryptoTools;
 public class V_Crypta {
 
 	public static void main(String[] args) throws Exception {
-		byte[] ct = CryptoTools.fileToBytes("data/MSG4.ct.txt");
+		byte[] ct = CryptoTools.fileToBytes("data/Q10.ct");
+
+		System.out.println("ic = " + CryptoTools.getIC(ct));
 
 		for (int i = 1; i < 50; i++) {
 			byte[] sample = sample(ct, i, 0);
@@ -17,7 +19,7 @@ public class V_Crypta {
 			}
 		}
 
-		int length = 9;
+		int length = 10;
 		int[] keySet = new int[length];
 		for (int i = 0; i < length; i++) {
 			byte[] sample = sample(ct, length, i);
@@ -78,7 +80,7 @@ public class V_Crypta {
 		System.out.println(new String(bk));
 	}
 
-	public static byte[] sample(byte[] ar, int skip, int startIndex) {
+	private static byte[] sample(byte[] ar, int skip, int startIndex) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 		for (int i = startIndex; i < ar.length; i += skip) {

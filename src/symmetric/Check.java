@@ -17,7 +17,7 @@ public class Check {
 		String ct_hex = reader.readLine();
 		byte[] ct = CryptoTools.hexToBytes(ct_hex);
 		byte[] ky = CryptoTools.hexToBytes("6275696C64696E67");
-		byte[] negated_ky = Question_4.getNegation(ky);
+		byte[] negated_ky = CryptoTools.getNegation(ky);
 		
 		// decrypt first layer
 		Key secret = new SecretKeySpec(negated_ky, "DES");

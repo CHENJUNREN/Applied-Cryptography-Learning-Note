@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import util.CryptoTools;
 
-public class Question_2 {
+public class AES_CBC_PKCS5Padding_2 {
 
 	public static void main(String[] args) throws Exception {
 
@@ -21,7 +21,7 @@ public class Question_2 {
 		AlgorithmParameterSpec aps = new IvParameterSpec(iv);
 		cipher.init(Cipher.DECRYPT_MODE, key, aps);
 		byte[] bk = cipher.doFinal(ct);
-		System.out.println("bk = " + new String(bk) + "<>");
+		System.out.println("bk = " + new String(bk) + "<");
 	}
 
 }
