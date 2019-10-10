@@ -53,13 +53,41 @@ public class Conceptual {
         Cipher cipher = Cipher.getInstance("DES/ECB/NoPadding");
         cipher.init(Cipher.ENCRYPT_MODE, secret);
         ct = cipher.doFinal(pt);
-        System.out.println("ct (binary) = " + CryptoTools.bytesToBin(ct));
+        String ct_bin = CryptoTools.bytesToBin(ct);
 
-
-        for (int i = 0; i < 10; i++) {
+        int count = 0;
+        int total = 0;
+        while (count < 10) {
             String pt_bin = CryptoTools.bytesToBin(pt);
             int ran = (int) (Math.random() * 64);
 
+            // flip a random bit in pt
+            StringBuilder sb = new StringBuilder(pt_bin);
+            if ((sb.charAt(ran) == '0')) {
+                sb.setCharAt(ran, '1');
+            } else {
+                sb.setCharAt(ran, '0');
+            }
+            String tmp = sb.toString();
+
+            byte[] new_pt = new byte[pt.length];
+            try {
+                for (int j = 0; j < new_pt.length; j++) {
+                    new_pt[j] = Byte.parseByte(tmp.substring(j * 8, (j+1) * 8), 2);
+                }
+            } catch (NumberFormatException e) {
+                continue;
+            }
+
+            String new_ct_bin = CryptoTools.bytesToBin(cipher.doFinal(new_pt));
+            int diff = 0;
+            for (int i = 0; i < new_ct_bin.length(); i++) {
+                if (ct_bin.charAt(i) != new_ct_bin.charAt(i)) diff++;
+            }
+            total += diff;
+            count++;
+            System.out.println("number of flipped bits in the ciphertext = " + diff + "/" + ct_bin.length());
         }
+        System.out.println("average number of flipped bits in the ciphertext = " + total/count + "/" + ct_bin.length());
     }
 }

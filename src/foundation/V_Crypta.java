@@ -7,7 +7,7 @@ import util.CryptoTools;
 public class V_Crypta {
 
 	public static void main(String[] args) throws Exception {
-		byte[] ct = CryptoTools.fileToBytes("data/Q10.ct");
+		byte[] ct = "YYTFFZNZEHTFGSIEGXQPDJIDLXEHDTPFVFEIGEIPBRNWHMQFSOTTBSRPNDC".getBytes();
 
 		System.out.println("ic = " + CryptoTools.getIC(ct));
 
