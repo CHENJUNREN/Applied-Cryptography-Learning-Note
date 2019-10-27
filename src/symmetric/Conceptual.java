@@ -3,10 +3,8 @@ package symmetric;
 import util.CryptoTools;
 
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.security.NoSuchAlgorithmException;
 
 public class Conceptual {
     public static void main(String[] args) throws Exception {

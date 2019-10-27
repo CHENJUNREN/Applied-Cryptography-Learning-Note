@@ -3,10 +3,8 @@ package symmetric;
 import util.CryptoTools;
 
 import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
 
 public class DES_SAE_PKCS5Padding {
 
