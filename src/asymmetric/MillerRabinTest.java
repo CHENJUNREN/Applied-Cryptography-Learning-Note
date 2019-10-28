@@ -84,5 +84,10 @@ public class MillerRabinTest {
             //System.out.println("    actual: " + isProbablePrime(tmp, k));
         }
         System.out.println("all test cases passed!!!");
+
+        tmp = new BigInteger("1033931178476059651954862004553");
+        System.out.println(tmp.toString() + " is a prime --->");
+        System.out.println("    expected: " + tmp.isProbablePrime(2 * k));
+        System.out.println("    actual: " + isProbablePrime(tmp, k));
     }
 }

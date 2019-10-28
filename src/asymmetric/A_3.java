@@ -19,9 +19,5 @@ public class A_3 {
         BigInteger m = c.modPow(d, n);
         String message = new String(m.toByteArray());
         System.out.println(message + "<");
-
-        BigInteger x = new BigInteger("490178445754147389060");
-        BigInteger z = x.subtract(new BigInteger("365944767426")).divide(new BigInteger("1055827021987"));
-        System.out.println(z.toString());
     }
 }
