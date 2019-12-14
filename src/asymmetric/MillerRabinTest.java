@@ -11,7 +11,7 @@ import java.util.Random;
  * write n as 2^r * d + 1 with d odd (by factoring out powers of 2 from n − 1)
  * WitnessLoop: repeat k times:
  *    pick a random integer a in the range [2, n − 2]
- *    x ← ad mod n
+ *    x ← a^d mod n
  *    if x = 1 or x = n − 1 then
  *       continue WitnessLoop
  *    repeat r − 1 times:
@@ -72,16 +72,16 @@ public class MillerRabinTest {
     public static void main(String[] args) throws Exception {
         int k = 10;
         BigInteger tmp;
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 1000; i++) {
             tmp = new BigInteger(500, new Random());
             boolean expected = tmp.isProbablePrime(2 * k);
             boolean actual = isProbablePrime(tmp, k);
-            if (expected != actual) {
-                throw new Exception("wrong answer detected!!");
+            if (actual != expected) {
+                throw new Exception("wrong answer detected!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
-            //System.out.println(tmp.toString() + " is prime --->");
-            //System.out.println("    expected: " + tmp.isProbablePrime(2 * k));
-            //System.out.println("    actual: " + isProbablePrime(tmp, k));
+//            System.out.println(tmp.toString() + " is prime --->");
+//            System.out.println("    expected: " + expected);
+//            System.out.println("    actual: " + actual);
         }
         System.out.println("all test cases passed!!!");
 

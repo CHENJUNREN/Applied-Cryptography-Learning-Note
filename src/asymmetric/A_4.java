@@ -18,15 +18,16 @@ public class A_4 {
             BigInteger y2 = M2.modInverse(m2);
             x = a1.multiply(M1).multiply(y1).add(a2.multiply(M2).multiply(y2)).mod(M);
             System.out.println("x is " + x.toString());
+            // test
             System.out.println("x mod 1055827021987 --->");
-            System.out.println("    expected: 365944767426");
+            System.out.println("    expected: " + a1);
             System.out.println("    actual: " + x.mod(m1).toString());
-            System.out.println("    is equal? " + x.mod(m1).toString().equals("365944767426"));
+            System.out.println("    is equal? " + x.mod(m1).equals(a1));
 
             System.out.println("x mod 973491987203 --->");
-            System.out.println("    expected: 698856040412");
+            System.out.println("    expected: " + a2);
             System.out.println("    actual: " + x.mod(m2).toString());
-            System.out.println("    is equal? " + x.mod(m2).toString().equals("698856040412"));
+            System.out.println("    is equal? " + x.mod(m2).equals(a2));
         } else {
             BigInteger n = new BigInteger("464260182");
             while (true) {
