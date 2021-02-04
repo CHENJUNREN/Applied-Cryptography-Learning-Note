@@ -9,19 +9,22 @@ public class S_Sharing {
         int t = 3;
         int n = 5;
 
-        BigInteger p = generatePrime(m);
+        // generate a prime number p that is bigger than n and m
+        BigInteger p = generatePrime(m, BigInteger.valueOf(n));
+        // generate t-1 coefficients such that all of them are smaller than p
         BigInteger[] coefficients = generateCoefficients(t, p);
         // tests
         System.out.println("modulus: " + p);
         System.out.println("modulus is prime: " + p.isProbablePrime(20));
         for (int i = 0; i < coefficients.length; i++) {
-            System.out.print("coefficient " + (i+1) + ": ");
+            System.out.print("coefficient " + (i + 1) + ": ");
             System.out.println(coefficients[i]);
         }
 
+        // generate n shares
         for (int i = 0; i < n; i++) {
-            BigInteger x = BigInteger.valueOf(i+1);
-            System.out.print("Share " + x + ": ");
+            BigInteger x = BigInteger.valueOf(i + 1);
+            System.out.print("Share " + (i + 1) + ": ");
             System.out.print("(" + x + ", ");
             System.out.println(getValue(coefficients, m, x, p) + ")");
         }
@@ -35,11 +38,11 @@ public class S_Sharing {
         return result.mod(p);
     }
 
-    public static BigInteger generatePrime(BigInteger m) {
+    public static BigInteger generatePrime(BigInteger m, BigInteger n) {
         BigInteger result;
         do {
             result = new BigInteger(m.bitLength() + 5, new Random());
-        } while (!result.isProbablePrime(20) || result.compareTo(m) <= 0);
+        } while (!result.isProbablePrime(20) || result.compareTo(m) <= 0 || result.compareTo(n) <= 0);
         return result;
     }
 
